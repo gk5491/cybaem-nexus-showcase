@@ -286,29 +286,39 @@ function ProjectCard({ p, onOpen }: { p: Project; onOpen: (p: Project) => void }
       <button
         type="button"
         onClick={() => onOpen(p)}
-        className="relative aspect-[16/10] w-full overflow-hidden text-left"
+        className="relative aspect-[16/10] w-full overflow-hidden text-left bg-surface border-b border-border"
       >
-        <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient}`} />
-        {/* Mock browser */}
-        <div className="absolute inset-4 rounded-xl bg-white/95 shadow-lg overflow-hidden">
-          <div className="h-5 flex items-center gap-1 px-2 bg-surface border-b border-border">
-            <span className="h-1.5 w-1.5 rounded-full bg-red-400/70" />
-            <span className="h-1.5 w-1.5 rounded-full bg-amber-400/70" />
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/70" />
-          </div>
-          <div className="p-3 grid grid-cols-4 gap-2">
-            <div className="col-span-1 rounded-md bg-surface h-full min-h-16" />
-            <div className="col-span-3 space-y-2">
-              <div className="h-2.5 rounded-full bg-surface w-2/3" />
-              <div className="h-2.5 rounded-full bg-surface w-1/2" />
-              <div className="grid grid-cols-3 gap-1.5">
-                <div className="h-6 rounded bg-surface" />
-                <div className="h-6 rounded bg-primary/15" />
-                <div className="h-6 rounded bg-surface" />
+        {p.image ? (
+          <img
+            src={p.image}
+            alt={p.name}
+            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <>
+            <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient}`} />
+            {/* Mock browser */}
+            <div className="absolute inset-4 rounded-xl bg-white/95 shadow-lg overflow-hidden">
+              <div className="h-5 flex items-center gap-1 px-2 bg-surface border-b border-border">
+                <span className="h-1.5 w-1.5 rounded-full bg-red-400/70" />
+                <span className="h-1.5 w-1.5 rounded-full bg-amber-400/70" />
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/70" />
+              </div>
+              <div className="p-3 grid grid-cols-4 gap-2">
+                <div className="col-span-1 rounded-md bg-surface h-full min-h-16" />
+                <div className="col-span-3 space-y-2">
+                  <div className="h-2.5 rounded-full bg-surface w-2/3" />
+                  <div className="h-2.5 rounded-full bg-surface w-1/2" />
+                  <div className="grid grid-cols-3 gap-1.5">
+                    <div className="h-6 rounded bg-surface" />
+                    <div className="h-6 rounded bg-primary/15" />
+                    <div className="h-6 rounded bg-surface" />
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+          </>
+        )}
         <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors" />
         <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all">
           <span className="rounded-full bg-white/90 backdrop-blur px-3 py-1 text-xs font-medium text-primary inline-flex items-center gap-1">
@@ -338,6 +348,8 @@ function ProjectCard({ p, onOpen }: { p: Project; onOpen: (p: Project) => void }
         <div className="mt-auto pt-3 flex gap-2">
           <a
             href={p.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full bg-primary px-3 py-2 text-xs font-medium text-primary-foreground hover:opacity-95 transition"
           >
             Live Demo <ExternalLink className="h-3.5 w-3.5" />
@@ -487,8 +499,28 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
             >
               <X className="h-4 w-4" />
             </button>
-            <div className={`h-56 md:h-72 bg-gradient-to-br ${project.gradient} relative`}>
-              <div className="absolute inset-6 md:inset-8 rounded-2xl bg-white/95 shadow-lg" />
+            <div className="h-56 md:h-72 relative bg-slate-50 border-b border-border flex items-center justify-center p-5 md:p-7 overflow-hidden">
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  className="max-w-full max-h-full object-contain rounded-2xl shadow-soft border border-slate-200/80 transition-transform duration-300 hover:scale-[1.01]"
+                />
+              ) : (
+                <div className={`w-full h-full bg-gradient-to-br ${project.gradient} relative p-6 md:p-8`}>
+                  <div className="w-full h-full rounded-2xl bg-white/95 shadow-lg overflow-hidden">
+                    <div className="h-5 flex items-center gap-1 px-2 bg-surface border-b border-border">
+                      <span className="h-1.5 w-1.5 rounded-full bg-red-400/70" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-amber-400/70" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/70" />
+                    </div>
+                    <div className="p-4 space-y-2">
+                      <div className="h-3 rounded-full bg-surface w-1/3" />
+                      <div className="h-3 rounded-full bg-surface w-1/2" />
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
             <div className="p-6 md:p-8">
               <div className="flex flex-wrap items-center gap-2 text-xs">
@@ -520,6 +552,8 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
               <div className="mt-8 flex flex-wrap gap-2">
                 <a
                   href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground"
                 >
                   Visit Website <ExternalLink className="h-4 w-4" />
