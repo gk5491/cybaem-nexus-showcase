@@ -6,9 +6,11 @@ import {
   Phone, Search, Star, X, Linkedin, Twitter, Github, Instagram,
   Sparkles, Shield, Zap, Layers, Rocket, HeartHandshake, Layout,
   Server, Database, Cloud, Smartphone, Palette, Lock,
+  Settings, FileText, Paintbrush, Code2, ShieldCheck, Headphones,
 } from "lucide-react";
 
 import logoAsset from "@/assets/cybaem-logo.png.asset.json";
+import webSystemsHero from "@/assets/web-systems-hero.png";
 import {
   categories, projects, technologyCategories, testimonials, stats,
   processSteps, whyUs, type Project,
@@ -184,35 +186,62 @@ function TopHeader() {
 
 function Hero() {
   return (
-    <section className="relative px-6 pt-8 pb-20 md:pb-28 gradient-hero">
-      <div className="mx-auto max-w-6xl grid md:grid-cols-2 gap-12 items-center">
+    <section id="home" className="relative px-6 pt-32 md:pt-36 pb-20 md:pb-28 gradient-hero overflow-hidden">
+      <div className="mx-auto max-w-7xl grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col justify-center"
         >
-          <h2 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.05] text-foreground">
-            Building digital experiences that{" "}
-            <span className="text-gradient">deliver results.</span>
-          </h2>
-          <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-xl">
-            Explore our collection of modern websites, enterprise software,
-            eCommerce platforms, CRM solutions, ERP systems, mobile applications
-            and custom digital products developed for clients across industries.
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50/80 px-4 py-1.5 text-xs font-semibold text-blue-600 w-fit mb-5 shadow-xs">
+            <span className="h-2 w-2 rounded-full bg-blue-600 animate-pulse" />
+            <span>LEADING WEB SYSTEMS SOLUTIONS</span>
+          </div>
+
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
+            Web Systems Built for{" "}
+            <span className="text-blue-600 font-serif italic">Business Growth</span>
+          </h1>
+
+          <p className="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl font-normal">
+            We design, develop, and deliver secure, scalable, high-performance web systems
+            that drive digital transformation and measurable results.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+
+          <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href="#portfolio"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-elevated hover:shadow-glow transition-all hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 rounded-full bg-[#1c5585] px-7 py-3.5 text-sm font-semibold text-white shadow-soft hover:bg-[#15436a] transition-all hover:-translate-y-0.5"
             >
-              View Portfolio <ArrowRight className="h-4 w-4" />
+              Explore Our Solutions <ArrowRight className="h-4 w-4" />
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-6 py-3 text-sm font-medium text-foreground hover:bg-surface transition"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-7 py-3.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition"
             >
-              Contact Us
+              View Our Work
             </a>
+          </div>
+
+          {/* Quick stats integrated on the left side */}
+          <div className="mt-10 pt-6 border-t border-slate-200/80 flex flex-wrap gap-4 items-center">
+            <div className="glass-strong rounded-2xl shadow-soft px-4 py-3 min-w-[150px]">
+              <div className="text-[11px] text-slate-500 font-medium">Total Projects Delivered</div>
+              <div className="mt-0.5 text-2xl font-bold text-blue-600">
+                <Counter to={500} suffix="+" />
+              </div>
+            </div>
+
+            <div className="glass-strong rounded-2xl shadow-soft px-4 py-3 flex items-center gap-2.5">
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-blue-50 text-blue-600">
+                <Check className="h-4 w-4 stroke-[2.5]" />
+              </span>
+              <div>
+                <div className="text-[11px] text-slate-500 font-medium">Client Satisfaction</div>
+                <div className="text-sm font-bold text-slate-900">99% Guaranteed</div>
+              </div>
+            </div>
           </div>
         </motion.div>
 
@@ -224,107 +253,19 @@ function Hero() {
 
 function HeroIllustration() {
   return (
-    <div className="relative h-[420px] md:h-[520px]">
-      {/* Ambient gradient */}
-      <div className="absolute inset-0 rounded-3xl gradient-primary opacity-[0.06] blur-2xl" />
-
-      {/* Laptop */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, delay: 0.1 }}
-        className="absolute inset-x-4 bottom-6 rounded-2xl bg-white shadow-elevated border border-border overflow-hidden animate-float-slow"
-      >
-        <div className="h-6 flex items-center gap-1.5 px-3 bg-surface border-b border-border">
-          <span className="h-2 w-2 rounded-full bg-red-400/70" />
-          <span className="h-2 w-2 rounded-full bg-amber-400/70" />
-          <span className="h-2 w-2 rounded-full bg-emerald-400/70" />
-        </div>
-        <div className="p-4 grid grid-cols-6 gap-3">
-          <div className="col-span-2 rounded-xl gradient-primary h-28" />
-          <div className="col-span-4 space-y-2">
-            <div className="h-3 rounded-full bg-surface w-3/4" />
-            <div className="h-3 rounded-full bg-surface w-1/2" />
-            <div className="h-3 rounded-full bg-surface w-2/3" />
-            <div className="mt-3 grid grid-cols-3 gap-2">
-              <div className="h-16 rounded-lg bg-surface" />
-              <div className="h-16 rounded-lg bg-primary/10" />
-              <div className="h-16 rounded-lg bg-surface" />
-            </div>
-          </div>
-          <div className="col-span-6 grid grid-cols-4 gap-2">
-            <div className="h-10 rounded-lg bg-surface" />
-            <div className="h-10 rounded-lg bg-surface" />
-            <div className="h-10 rounded-lg bg-primary/10" />
-            <div className="h-10 rounded-lg bg-surface" />
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Tablet */}
-      <motion.div
-        initial={{ opacity: 0, x: 40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.9, delay: 0.25 }}
-        className="absolute -right-2 top-8 w-40 md:w-48 rounded-2xl bg-white shadow-elevated border border-border overflow-hidden animate-float-med"
-      >
-        <div className="p-3 space-y-2">
-          <div className="h-16 rounded-lg gradient-primary" />
-          <div className="h-2 w-2/3 rounded-full bg-surface" />
-          <div className="h-2 w-1/2 rounded-full bg-surface" />
-          <div className="grid grid-cols-2 gap-2 pt-1">
-            <div className="h-10 rounded-lg bg-surface" />
-            <div className="h-10 rounded-lg bg-primary/10" />
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Mobile */}
-      <motion.div
-        initial={{ opacity: 0, x: -30, y: 20 }}
-        animate={{ opacity: 1, x: 0, y: 0 }}
-        transition={{ duration: 0.9, delay: 0.35 }}
-        className="absolute left-0 top-16 w-28 md:w-32 rounded-3xl bg-white shadow-elevated border border-border overflow-hidden animate-float-fast"
-      >
-        <div className="p-2 space-y-2">
-          <div className="h-3 rounded-full bg-surface w-2/3 mx-auto" />
-          <div className="h-20 rounded-2xl gradient-primary" />
-          <div className="h-2 rounded-full bg-surface" />
-          <div className="h-2 rounded-full bg-surface w-3/4" />
-          <div className="grid grid-cols-3 gap-1.5 pt-1">
-            <div className="h-8 rounded-lg bg-surface" />
-            <div className="h-8 rounded-lg bg-primary/10" />
-            <div className="h-8 rounded-lg bg-surface" />
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Floating stat card */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, delay: 0.5 }}
-        className="absolute right-4 bottom-0 glass-strong rounded-2xl shadow-soft px-4 py-3 animate-float-med"
-      >
-        <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Uptime</div>
-        <div className="text-lg font-semibold text-primary">99.99%</div>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, delay: 0.6 }}
-        className="absolute left-6 top-0 glass-strong rounded-2xl shadow-soft px-4 py-3 animate-float-slow"
-      >
-        <div className="flex items-center gap-2">
-          <span className="h-8 w-8 rounded-xl gradient-primary" />
-          <div>
-            <div className="text-xs text-muted-foreground">Deploys today</div>
-            <div className="text-sm font-semibold text-foreground">128</div>
-          </div>
-        </div>
-      </motion.div>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+      className="relative flex items-center justify-center w-full"
+    >
+      {/* Image attached directly to background with no border, card container, or box-shadow */}
+      <img
+        src={webSystemsHero}
+        alt="Web Systems Built for Business Growth"
+        className="w-full h-auto max-h-[580px] object-contain drop-shadow-none pointer-events-none select-none"
+      />
+    </motion.div>
   );
 }
 
@@ -696,39 +637,103 @@ function TechnologiesSection() {
 /*  Process                                                                   */
 /* -------------------------------------------------------------------------- */
 
+const processIconMap: Record<string, any> = {
+  Search,
+  FileText,
+  Paintbrush,
+  Code2,
+  ShieldCheck,
+  Rocket,
+  Headphones,
+};
+
 function ProcessSection() {
   return (
-    <section className="px-6 py-24">
-      <div className="mx-auto max-w-4xl">
-        <SectionHeading
-          eyebrow="How we work"
-          title="A calm, considered process."
-          subtitle="From first conversation to long-term partnership, every step is transparent."
-        />
-        <ol className="relative border-l-2 border-dashed border-border ml-4 space-y-6">
-          {processSteps.map((s) => (
-            <motion.li
-              key={s.n}
-              initial={{ opacity: 0, x: -12 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5 }}
-              className="pl-8 relative"
-            >
-              <span className="absolute -left-[18px] top-1 flex h-8 w-8 items-center justify-center rounded-full gradient-primary text-white text-xs font-semibold shadow-soft">
-                {s.n}
-              </span>
-              <div className="rounded-2xl bg-card border border-border shadow-soft p-5 hover:shadow-elevated transition-shadow">
-                <h4 className="text-base font-semibold text-foreground">{s.title}</h4>
-                <p className="mt-1 text-sm text-muted-foreground">{s.desc}</p>
-              </div>
-            </motion.li>
-          ))}
-        </ol>
+    <section className="px-4 sm:px-6 py-20 bg-slate-50/50">
+      <div className="mx-auto max-w-7xl">
+        {/* Header matching screenshot */}
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-bold tracking-wider uppercase mb-4 shadow-xs">
+            <Settings className="w-3.5 h-3.5 text-blue-600" />
+            <span>OUR PROCESS</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+            From Idea to <span className="text-blue-600">Launch</span>
+          </h2>
+
+          <div className="flex items-center justify-center gap-1 mt-3 mb-4">
+            <span className="w-10 h-1 bg-blue-600 rounded-full inline-block" />
+            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full inline-block" />
+          </div>
+
+          <p className="text-slate-500 text-sm sm:text-base max-w-xl mx-auto font-medium">
+            A simple, transparent process that turns your ideas into powerful digital solutions.
+          </p>
+        </div>
+
+        {/* 7-Step Horizontal Flow */}
+        <div className="relative mt-8">
+          {/* Dashed connecting line visible on large displays */}
+          <div className="hidden lg:block absolute top-6 left-[6%] right-[6%] border-t-2 border-dashed border-slate-200 z-0" />
+
+          <ol className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4 sm:gap-5 relative z-10">
+            {processSteps.map((s, i) => {
+              const Icon = processIconMap[s.icon] ?? Search;
+
+              // Color classes based on step color (blue, purple, green)
+              const isPurple = s.color === "purple";
+              const isGreen = s.color === "green";
+
+              const iconBgClass = isPurple
+                ? "bg-purple-50 text-purple-600"
+                : isGreen
+                ? "bg-emerald-50 text-emerald-600"
+                : "bg-blue-50 text-blue-600";
+
+              const barBgClass = isPurple
+                ? "bg-purple-600"
+                : isGreen
+                ? "bg-emerald-600"
+                : "bg-blue-600";
+
+              return (
+                <motion.li
+                  key={s.n}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.45, delay: i * 0.08 }}
+                  className="flex flex-col items-center group h-full"
+                >
+                  {/* Step node badge with 100% full covered circle border */}
+                  <div className="flex items-center justify-center w-11 h-11 mb-4 shrink-0 bg-white rounded-full border-2 border-blue-600 text-blue-600 text-xs font-bold shadow-xs relative z-10">
+                    {s.n}
+                  </div>
+
+                  {/* Card Body */}
+                  <div className="w-full flex-1 bg-white border border-slate-100/80 rounded-3xl p-5 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-center text-center">
+                    <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 ${iconBgClass}`}>
+                      <Icon className="w-7 h-7 stroke-[1.75]" />
+                    </div>
+
+                    <h4 className="text-base font-bold text-slate-900 mb-2">{s.title}</h4>
+
+                    <p className="text-xs text-slate-500 leading-relaxed flex-1 max-w-[170px]">{s.desc}</p>
+
+                    <div className={`w-8 h-1 rounded-full mt-5 ${barBgClass}`} />
+                  </div>
+                </motion.li>
+              );
+            })}
+          </ol>
+        </div>
       </div>
     </section>
   );
 }
+
+
 
 /* -------------------------------------------------------------------------- */
 /*  Why Choose                                                                */
@@ -775,48 +780,7 @@ function WhySection() {
 /*  Testimonials                                                              */
 /* -------------------------------------------------------------------------- */
 
-function TestimonialsSection() {
-  return (
-    <section className="px-6 py-24 gradient-hero">
-      <div className="mx-auto max-w-6xl">
-        <SectionHeading
-          eyebrow="Client Reviews"
-          title="Words from the teams we've partnered with."
-        />
-        <div className="grid gap-5 md:grid-cols-2">
-          {testimonials.map((t, i) => (
-            <motion.figure
-              key={t.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.55, delay: i * 0.06 }}
-              className="glass-strong rounded-3xl shadow-soft p-6 md:p-8 hover:shadow-elevated transition-shadow"
-            >
-              <div className="flex items-center gap-1 text-primary">
-                {Array.from({ length: 5 }).map((_, k) => (
-                  <Star key={k} className="h-4 w-4 fill-current" />
-                ))}
-              </div>
-              <blockquote className="mt-4 text-base md:text-lg text-foreground/85 leading-relaxed">
-                “{t.review}”
-              </blockquote>
-              <figcaption className="mt-6 flex items-center gap-3">
-                <div className="h-10 w-10 rounded-full gradient-primary flex items-center justify-center text-white text-sm font-semibold">
-                  {t.name.split(" ").map((n) => n[0]).join("")}
-                </div>
-                <div>
-                  <div className="text-sm font-semibold text-foreground">{t.name}</div>
-                  <div className="text-xs text-muted-foreground">{t.role} · {t.company}</div>
-                </div>
-              </figcaption>
-            </motion.figure>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+
 
 /* -------------------------------------------------------------------------- */
 /*  CTA                                                                       */
@@ -974,14 +938,12 @@ function PortfolioPage() {
       <ScrollProgress />
       <Navbar />
       <main>
-        <TopHeader />
         <Hero />
         <PortfolioSection />
         <StatsSection />
         <TechnologiesSection />
         <ProcessSection />
         <WhySection />
-        <TestimonialsSection />
         <CtaSection />
       </main>
       <Footer />

@@ -183,23 +183,22 @@ export const technologyCategories: TechnologyCategory[] = [
     ],
   },
   {
-    title: "System Design & Architecture",
+    title: "System Design",
     icon: "Shield",
     items: [
-      "Monolithic Architecture", "Microservices Architecture", "REST APIs",
-      "GraphQL APIs", "API Gateway", "Authentication (JWT, OAuth)",
-      "Role-Based Access Control", "Load Balancer", "Reverse Proxy",
-      "CDN", "Caching", "Message Queues", "Event-Driven Architecture",
-      "Horizontal & Vertical Scaling", "High Availability", "Database Replication",
-      "Disaster Recovery", "Logging & Monitoring", "WebSockets", "File Storage",
-      "SSL & HTTPS", "Rate Limiting", "System Security",
+      "Monolithic", "Microservices", "REST APIs", "API Gateway",
+      "Authentication", "Caching", "CDN", "Message Queues",
+      "WebSockets", "Scalability", "High Availability", "Monitoring",
+      "Security",
     ],
   },
   {
     title: "Mobile Development",
     icon: "Smartphone",
     items: [
-      "React Native", "Expo", "Android", "Progressive Web Apps",
+      "Android Development", "iOS Development", "React Native", "Flutter",
+      "Expo", "Kotlin", "Java (Android)", "Swift (iOS)",
+      "App Store Deployment", "Google Play Deployment",
     ],
   },
   {
@@ -271,13 +270,55 @@ export const stats = [
 ];
 
 export const processSteps = [
-  { n: 1, title: "Discovery", desc: "Understand goals, users and constraints through structured workshops." },
-  { n: 2, title: "Planning", desc: "Roadmap, architecture and success metrics defined upfront." },
-  { n: 3, title: "UI Design", desc: "Premium, brand-aligned interfaces designed in Figma." },
-  { n: 4, title: "Development", desc: "Modular, tested and CI-ready code shipped in sprints." },
-  { n: 5, title: "Testing", desc: "Automated, manual and security QA across environments." },
-  { n: 6, title: "Deployment", desc: "Zero-downtime release on your cloud of choice." },
-  { n: 7, title: "Support", desc: "Ongoing monitoring, iteration and dedicated success team." },
+  {
+    n: "01",
+    title: "Discover",
+    desc: "Understand your goals and requirements.",
+    icon: "Search",
+    color: "blue",
+  },
+  {
+    n: "02",
+    title: "Plan",
+    desc: "Define the strategy and create a clear roadmap.",
+    icon: "FileText",
+    color: "purple",
+  },
+  {
+    n: "03",
+    title: "Design",
+    desc: "Craft intuitive UI/UX that delivers great experiences.",
+    icon: "Paintbrush",
+    color: "green",
+  },
+  {
+    n: "04",
+    title: "Build",
+    desc: "Develop scalable, secure and high-performance solutions.",
+    icon: "Code2",
+    color: "blue",
+  },
+  {
+    n: "05",
+    title: "Test",
+    desc: "Ensure quality, security and seamless performance.",
+    icon: "ShieldCheck",
+    color: "purple",
+  },
+  {
+    n: "06",
+    title: "Launch",
+    desc: "Deploy your solution smoothly and with confidence.",
+    icon: "Rocket",
+    color: "green",
+  },
+  {
+    n: "07",
+    title: "Support",
+    desc: "Provide continuous support and drive long-term success.",
+    icon: "Headphones",
+    color: "blue",
+  },
 ];
 
 export const whyUs = [
