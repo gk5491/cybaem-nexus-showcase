@@ -4,13 +4,16 @@ import { motion, AnimatePresence, useScroll, useSpring, useInView } from "framer
 import {
   ArrowRight, ArrowUpRight, Check, ChevronUp, ExternalLink, Mail,
   Phone, Search, Star, X, Linkedin, Twitter, Github, Instagram,
-  Sparkles, Shield, Zap, Layers, Rocket, HeartHandshake,
+  Sparkles, Shield, Zap, Layers, Rocket, HeartHandshake, Layout,
+  Server, Database, Cloud, Smartphone, Palette, Lock,
 } from "lucide-react";
+
 import logoAsset from "@/assets/cybaem-logo.png.asset.json";
 import {
-  categories, projects, technologies, testimonials, stats,
+  categories, projects, technologyCategories, testimonials, stats,
   processSteps, whyUs, type Project,
 } from "@/lib/portfolio-data";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
