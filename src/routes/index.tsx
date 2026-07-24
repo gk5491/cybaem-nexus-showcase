@@ -4,13 +4,16 @@ import { motion, AnimatePresence, useScroll, useSpring, useInView } from "framer
 import {
   ArrowRight, ArrowUpRight, Check, ChevronUp, ExternalLink, Mail,
   Phone, Search, Star, X, Linkedin, Twitter, Github, Instagram,
-  Sparkles, Shield, Zap, Layers, Rocket, HeartHandshake,
+  Sparkles, Shield, Zap, Layers, Rocket, HeartHandshake, Layout,
+  Server, Database, Cloud, Smartphone, Palette, Lock,
 } from "lucide-react";
+
 import logoAsset from "@/assets/cybaem-logo.png.asset.json";
 import {
-  categories, projects, technologies, testimonials, stats,
+  categories, projects, technologyCategories, testimonials, stats,
   processSteps, whyUs, type Project,
 } from "@/lib/portfolio-data";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -630,29 +633,64 @@ function StatsSection() {
 /*  Technologies                                                              */
 /* -------------------------------------------------------------------------- */
 
+const categoryIcons: Record<string, React.ComponentType<{ className?: string }>> = {
+  Layout,
+  Server,
+  Database,
+  Cloud,
+  Shield,
+  Smartphone,
+  Palette,
+  Sparkles,
+  Lock,
+};
+
 function TechnologiesSection() {
   return (
     <section className="px-6 py-24 bg-surface">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="Technologies"
-          title="Modern stack, chosen for the job."
-          subtitle="We pick tools that make products faster to build, safer to run and easier to evolve."
+          title="Full stack capabilities, card by card."
+          subtitle="Every layer of modern product engineering — from pixel to production."
         />
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-10 gap-3">
-          {technologies.map((t) => (
-            <div
-              key={t}
-              className="aspect-square rounded-2xl bg-white border border-border shadow-soft flex items-center justify-center px-2 text-center text-xs md:text-[13px] font-medium text-foreground/80 hover:text-primary hover:border-primary/40 hover:-translate-y-0.5 transition-all"
-            >
-              {t}
-            </div>
-          ))}
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+          {technologyCategories.map((cat) => {
+            const Icon = categoryIcons[cat.icon];
+            return (
+              <motion.div
+                key={cat.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5 }}
+                className="rounded-3xl bg-white border border-border shadow-soft p-6 hover:shadow-elevated hover:-translate-y-0.5 transition-all"
+              >
+                <div className="flex items-center gap-3 mb-5">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    {Icon && <Icon className="h-5 w-5" />}
+                  </span>
+                  <h3 className="text-lg font-semibold text-foreground">{cat.title}</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {cat.items.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full bg-surface border border-border px-3 py-1 text-xs font-medium text-foreground/80 hover:text-primary hover:border-primary/30 transition-colors"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
+
 
 /* -------------------------------------------------------------------------- */
 /*  Process                                                                   */

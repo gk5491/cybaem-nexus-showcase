@@ -141,6 +141,95 @@ export const technologies = [
   "Azure", "Firebase", "Supabase", "Tailwind CSS", "Material UI", "Framer Motion",
 ];
 
+export type TechnologyCategory = {
+  title: string;
+  icon: string;
+  items: string[];
+};
+
+export const technologyCategories: TechnologyCategory[] = [
+  {
+    title: "Frontend Development",
+    icon: "Layout",
+    items: [
+      "React.js", "Next.js", "Angular", "Vue.js", "HTML5", "CSS3",
+      "JavaScript (ES6+)", "TypeScript", "Tailwind CSS", "Bootstrap",
+      "Material UI", "Framer Motion",
+    ],
+  },
+  {
+    title: "Backend Development",
+    icon: "Server",
+    items: [
+      "Node.js", "Express.js", "Spring Boot", "Java", "PHP", "Laravel",
+      "Python", "FastAPI", ".NET",
+    ],
+  },
+  {
+    title: "Database",
+    icon: "Database",
+    items: [
+      "MySQL", "PostgreSQL", "MongoDB", "SQL Server", "Firebase Firestore",
+      "Supabase", "Redis",
+    ],
+  },
+  {
+    title: "Cloud & Deployment",
+    icon: "Cloud",
+    items: [
+      "AWS", "Microsoft Azure", "Google Cloud Platform", "DigitalOcean",
+      "Hostinger VPS", "Vercel", "Netlify", "Render", "Railway", "Docker",
+      "Nginx", "Cloudflare", "GitHub Actions",
+    ],
+  },
+  {
+    title: "System Design & Architecture",
+    icon: "Shield",
+    items: [
+      "Monolithic Architecture", "Microservices Architecture", "REST APIs",
+      "GraphQL APIs", "API Gateway", "Authentication (JWT, OAuth)",
+      "Role-Based Access Control", "Load Balancer", "Reverse Proxy",
+      "CDN", "Caching", "Message Queues", "Event-Driven Architecture",
+      "Horizontal & Vertical Scaling", "High Availability", "Database Replication",
+      "Disaster Recovery", "Logging & Monitoring", "WebSockets", "File Storage",
+      "SSL & HTTPS", "Rate Limiting", "System Security",
+    ],
+  },
+  {
+    title: "Mobile Development",
+    icon: "Smartphone",
+    items: [
+      "React Native", "Expo", "Android", "Progressive Web Apps",
+    ],
+  },
+  {
+    title: "UI/UX Design",
+    icon: "Palette",
+    items: [
+      "Figma", "Adobe XD", "Responsive Design", "Wireframing", "Prototyping",
+      "Design Systems", "Accessibility (WCAG)",
+    ],
+  },
+  {
+    title: "AI & Automation",
+    icon: "Sparkles",
+    items: [
+      "OpenAI API", "Google Gemini API", "OCR Solutions", "AI Chatbots",
+      "Document Processing", "Prescription Scanner", "Workflow Automation",
+    ],
+  },
+  {
+    title: "DevOps & Security",
+    icon: "Lock",
+    items: [
+      "Docker", "Docker Compose", "CI/CD Pipelines", "GitHub Actions",
+      "GitLab CI", "SSL Certificates", "Firewall Configuration", "Backup & Recovery",
+      "Monitoring", "Performance Optimization",
+    ],
+  },
+];
+
+
 export const industries = [
   "Finance", "Construction", "Healthcare", "EdTech", "SaaS",
   "Manufacturing", "Retail", "Health & Fitness",
